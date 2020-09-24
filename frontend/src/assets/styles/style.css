@@ -1,0 +1,526 @@
+/* Toolbar */
+
+.bigbox{
+  max-width: 1200px;
+}
+
+nav.navbar {
+  top: 0;
+  z-index: 3;
+  width: 100%;
+  position: fixed;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.17);
+}
+
+ul.ml-auto.navbar-nav {
+  flex-direction: row;  
+  border-radius: 4px;
+}
+
+.navbar-nav .hero {
+  width: 48px;
+  height: 48px;
+  color: #ffffff;
+  background-color: #89E7DF;
+  border-radius: 50%;
+}
+
+.App .menu {
+  left: 0;
+  top: 64px;
+  z-index: 2;
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  overflow-y: auto;
+  min-height: calc(100% - 60px);
+  color: #ffffff;
+  transition: 500ms ease;
+  background-color: #248ED3;
+  transform: translateX(-300px);
+}
+
+.App .menu.show {
+  transform: translateX(0);
+}
+
+.App .menu a.menu-item {
+  padding: 16px;
+  display: block;
+  margin-bottom: 0;
+  text-align: left;
+  text-decoration: none;
+  transition: all 500ms ease;
+}
+
+.App .menu a.menu-item:hover {
+  background-color: #89E7DF;
+}
+
+.App .menu>a p.navbar__brand {
+  margin: 0;
+  color: #ffffff;
+  transition: color 500ms ease;
+}
+
+.App .menu>a p.navbar__brand:hover {
+  color: #000000;
+}
+
+.App .menu .menu-item .row {
+  flex-wrap:'wrap';
+  flex-direction: 'row';
+  align-items: center;
+}
+
+/* Message */
+
+.message {
+  font-size: 12px;
+  color: #dc3545;
+  position: absolute;
+  bottom: 4px;
+  text-align: left;
+  width: 100%;
+}
+
+/* Shotcurts Modifications */
+
+.container-shortcurt {
+  display: flex;
+  position: absolute;
+  top: 150px;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  width: 80%;
+  flex-wrap: wrap;
+}
+
+.card-shortcurt {
+  flex: 1;
+  display: flex;
+  margin: 8px;
+  padding: 16px;
+  min-width: 164px;
+  border-radius: 4px;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFF;
+  justify-content: space-between;
+  box-shadow: #EEEE 0px 0px 10px;
+  transition: transform 500ms ease;
+}
+
+.card-shortcurt:hover {
+  transform: scale(1.1);
+}
+
+.card-shortcurt:active {
+  background-color: #E0E0E0;
+}
+
+.card-shortcurt i {
+  margin-top: 24px;
+}
+
+.card-shortcurt aside {
+  margin-bottom: 24px;
+}
+
+@media (max-width: 710px) {
+  .container-shortcurt {
+    width: 100%;
+  }
+}
+
+/* Buttons */
+
+button.icon-btn {
+  border: none;
+  background-color: transparent;
+}
+
+button.icon-btn:hover {
+  opacity: 0.3;
+}
+
+button.icon-btn i, button.icon-btn svg {
+  vertical-align: middle;
+}
+
+button.icon, button.toolbar {
+  padding: 0;
+  border: none;
+  height: 36px;
+  width: 36px;
+  display: block;
+  font-size: 1.25rem;
+  background-color: transparent;
+  transition: 500ms ease;
+}
+
+button.icon:hover, button.toolbar:hover {
+  border-radius: 50%;
+  background-color: #00000020;
+}
+
+button.icon.btn-secondary.disabled {
+  color: #fff;
+  background-color: transparent;
+  border-color: #6c757d;
+}
+
+button.icon .material-icons, button.icon-text .material-icons {
+  vertical-align: sub;
+}
+
+/* Colors */
+
+.dark {
+  color: #424242;
+}
+
+.blue {
+  color: #007bff;
+}
+
+.green {
+  color: #66BB6A;
+}
+
+.orange {
+  color: #FFA726;
+}
+
+.white {
+  color: #ffffff;
+}
+
+/* Card Styles */
+
+div.card {
+  margin: 0 auto;
+  box-shadow: #00000025 0px 2px 4px;
+}
+
+.card h1 {
+  font-size: 1.25rem;
+}
+
+/* Sizes */
+
+.s-460, .s-640, .s-840 {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 800px) {
+  .s-460 {
+    width: 460px;
+  }
+  .s-640 {
+    width: 640px;
+  }
+  .s-840, .modal-dialog.s-840 {
+    width: 840px;
+    max-width: 840px;
+  }
+}
+
+.size-48 {
+  font-size: 3rem;
+}
+
+/* Form Modifications */
+
+div.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Feedback Modifications */
+
+div.invalid-feedback {
+  height: 0;
+  margin-top: 0;
+}
+
+/* Helpers */
+
+div.pad {
+  padding: 16px;
+}
+
+div.no-pad {
+  padding: 0;
+}
+
+.pad-l {
+  padding-left: 16px;
+}
+
+div.no-margin {
+  margin: 0;
+}
+
+div.no-margin-b {
+  margin-bottom: 0;
+}
+
+.margin-left {
+  margin-left: 16px;
+}
+
+.margin-right {
+  margin-right: 16px;
+}
+
+.margin-top, div.margin-top, .card.list.margin-top {
+  margin-top: 16px;
+}
+
+.margin-bottom, div.margin-bottom {
+  margin-bottom: 16px;
+}
+
+/* Text-align */
+
+.center-t {
+  text-align: center;
+  text-align: -webkit-center;
+}
+
+.right {
+  text-align: right;
+  text-align: -webkit-right;
+}
+
+.left {
+  text-align: left;
+}
+
+/* Align */
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-h {
+  justify-self: center;
+  justify-content: center;
+}
+
+.center-v {
+  align-self: center;
+  align-items: center;
+}
+
+div.end-v {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Icon */
+
+.material-icons {
+  vertical-align: middle;
+}
+
+.material-icons.pdf {
+  cursor: pointer;
+  font-size: 3rem;
+  color: #ef5350;
+}
+
+.material-icons.remove {
+  opacity: 0;
+  cursor: pointer;
+  padding: 12;
+  position: absolute;
+  transition: 500ms ease;
+  font-size: 3rem;
+}
+
+.material-icons.remove:hover, .material-icons.remove:active {
+  opacity: 0.6;
+  color: #000000;
+  background-color: #ffffff;
+}
+
+/* Datepicker modifications */
+
+div.react-datepicker-wrapper {
+  display: block;
+}
+
+div.react-datepicker-popper {
+  z-index: 3;
+  top: auto !important;
+  left: auto !important;
+  border: 1px solid #ced4da;
+  transform: none !important;
+  border-radius: 4px;
+}
+
+div.react-datepicker {
+  border: none;
+}
+
+div.react-datepicker__header {
+  border-bottom: none;
+  background-color: transparent;
+}
+
+/* Dropzone */
+
+.dropzone {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 1.25rem;
+  border-width: 2px;
+  border-radius: 2px;
+  border-color: #eeeeee;
+  border-style: dashed;
+  background-color: #fafafa;
+  color: #bdbdbd;
+  outline: none;
+  transition: border 0.24s ease-in-out;
+}
+
+.dropzone:hover {
+  border-color: #17a2b8;
+}
+
+.accept {
+  border-color: #66bb6a;
+}
+
+.decline {
+  border-color: #ef5350;
+}
+
+.with-file {
+  border-color: #00838f;
+}
+
+.thumb {
+  margin: 4px;
+  display: inline-flex;
+  box-sizing: border-box;
+}
+
+.thumbsContainer {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 16px;
+}
+
+.thumbLabel {
+  font-size: 14px;
+  color: #9E9E9E;
+}
+
+.thumb .thumbInner {
+  display: flex;
+  overflow: hidden;
+}
+
+.preview {
+  display: block;
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  object-fit: contain;
+  background-color: #000;
+}
+
+/* Authorization */
+
+.authorization-title {
+  padding: 10px;
+  text-align: center;
+  color: #ef5350;
+  font-size: 24px;
+}
+
+.authorization-title .material-icons {
+  font-size: 3rem;
+  vertical-align: middle;
+}
+
+/* checkbox and radio input Modifications */
+
+input[type='radio'], input[type='checkbox'] {
+  box-sizing: border-box;
+  padding: 0;
+  height: 20px;
+  width: 20px;
+}
+
+.step-item {
+  width: 100%;
+  display: none;
+  transition: 300ms ease;
+}
+
+.step-item.show {
+  display: initial;
+}
+
+/* Item step feedback */
+
+.step-indicator-main {
+  width: 100%;
+  display: flex;
+  padding: 0 0 16px;
+  justify-content: center;
+}
+
+.step-indicator-container {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-indicator {
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  text-align: center;
+  padding: 4px 0;
+  font-weight: bold;
+  color: #616161;
+  font-size: 16px;
+  border: 1px solid #bdbdbd;
+  transition: 500ms ease;
+}
+
+.step-line {
+  width: 100px;
+  border: 1px solid #bdbdbd;
+  transition: 500ms ease-in;
+}
+
+.current {
+  color: #fff;
+  border: 1px solid #007bff;
+  background-color: #007bff;
+}
+
+.current-l {
+  border: 1px solid #007bff;
+}

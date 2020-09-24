@@ -1,0 +1,18 @@
+.headerFlex {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  z-index: 1;
+  top:1;
+}
+
+.headerContainer {
+  max-width: 90%;
+  background: #248ED3;
+  border: 1px solid #b1b1b1;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 20px;
+}

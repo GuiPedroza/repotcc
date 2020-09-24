@@ -1,0 +1,24 @@
+.footerFlex {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  z-index: 1;
+  bottom:0;
+}
+
+.footerContainer {
+  max-width: 80%;
+  background: #17a2b8;
+  border: 1px solid #b1b1b1;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  padding: 7px 20px;
+}
+
+.iconMenu{
+  color:'#89E7DF';
+  margin:5px;
+  font-size:40px;
+}
