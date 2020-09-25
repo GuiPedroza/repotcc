@@ -7,7 +7,9 @@ import {
   Input,
   Label,
   Row,
-  CustomInput
+  Spinner,
+  Toast,
+  ToastBody
 } from "reactstrap";
 import pt from "date-fns/locale/pt";
 import DatePicker from "react-datepicker";
@@ -21,6 +23,7 @@ export default function CadastroPaciente() {
     codigo:'',
     cpf:'',
     dataNascimento: null,
+    idade:null,
     tipoSangue: null,
     estadoCivil: null,
     escolaridade: null,
@@ -41,11 +44,52 @@ export default function CadastroPaciente() {
     especial:'',
     dataInclusao: new Date(),
     idAluno:'',
+    loading: false,
+    success:false
   })
 
-  const handleSubmit = () => {
-    sessionStorage.setItem('Paciente', JSON.stringify(paciente));
+  const defaultState = {
+    nome:'',
+    apelido:'',
+    codigo:'',
+    cpf:'',
+    dataNascimento: null,
+    idade:null,
+    tipoSangue: null,
+    estadoCivil: null,
+    escolaridade: null,
+    contatoPrincipal: '',
+    contatoSecundario:'',
+    profissao:null,
+    ocupacao:null,
+    raca:null,
+    etinia:null,
+    genero:null,
+    idGenero:null,
+    orientacaoSex:null,
+    endereco:{
+      municipio:null,
+      uf:null,
+      cep:null,
+    },
+    especial:'',
+    dataInclusao: new Date(),
+    idAluno:'',
+    loading: false,
+    success:false
   }
+
+  const handleSubmit = async() => {
+    await sessionStorage.setItem('Paciente', JSON.stringify(paciente));
+    setPaciente({...paciente, loading: true});
+    setTimeout(()=>{
+      setPaciente({...paciente, loading: false, success: true});
+    },1500);
+
+    setTimeout(()=>{
+      setPaciente({...paciente,success: false});
+    },4000);
+  } 
 
   return (
     <Container className="bigbox" title="Cadastro Paciente" subtitle="tela aluno">
@@ -128,16 +172,11 @@ export default function CadastroPaciente() {
             <DatePicker
               id="dataNascimento"
               name="dataNascimento"
-              //inline
-              //className={`form-control ${record.data ? '' : 'is-invalid'}`}
-              //disabled={loadingForm || record.enviado
               dateFormat="dd/MM/yyyy"
               locale={pt}
-              selected={new Date()}
+              selected={paciente.dataNascimento}
               maxDate={new Date()}
-            //onChange={date => this.handleDate(date, 'end')}
-            // selected={record.data}
-            //onChange={date => this.handleDate(date, 'data')}
+              onChange={value => setPaciente({...paciente, dataNascimento: value, idade: parseInt(new Date().getYear())-parseInt(value.getYear())})}
             />
           </FormGroup>
         </Col>
@@ -192,6 +231,11 @@ export default function CadastroPaciente() {
               value={paciente.estadoCivil}
             >
               <option value="">Selecione estado civil</option>
+              <option value="Solteiro">Solteiro</option>
+              <option value="Casado">Casado</option>
+              <option value="Viúvo">Viúvo</option>
+              <option value="Separado">Separado</option>
+              <option value="União Estável">União Estável</option>
             </Input>
             <FormFeedback className="no-margin-t height-zero">
               Genero (*obrigatório)
@@ -209,6 +253,13 @@ export default function CadastroPaciente() {
               value={paciente.escolaridade}
             >
               <option value="">Selecione grau escolaridade</option>
+              <option value="Sem instrução ou menor que um ano">Sem instrução ou menor que um ano</option>
+              <option value="Fundamental Incompleto">Fundamental Incompleto</option>
+              <option value="Fundamental Completo">Fundamental Completo</option>
+              <option value="Medio Incompleto">Medio Incompleto</option>
+              <option value="Medio Completo">Medio Completo</option>
+              <option value="Superior Incompleto">Superior Incompleto</option>
+              <option value="Superior Completo">Superior Completo</option>
             </Input>
             <FormFeedback className="no-margin-t height-zero">
               Genero (*obrigatório)
@@ -457,7 +508,16 @@ export default function CadastroPaciente() {
           </FormGroup>
         </Col>
       </Row>
-      <Button color="info" onClick={()=>handleSubmit()}>Cadastrar</Button>
+      <div style={{display:'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+      <Button color="info" disabled={paciente.loading} onClick={()=>handleSubmit()}>{!paciente.loading?'Cadastrar':<Spinner/>}</Button>
+      { paciente.success &&
+        <Toast style={{backgroundColor: 'lightgreen'}}>
+          <ToastBody>
+            Cadastrado com sucesso!
+          </ToastBody>
+        </Toast>
+    }
+    </div>
     </Container>
   );
 }
